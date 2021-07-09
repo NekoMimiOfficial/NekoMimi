@@ -1,11 +1,11 @@
-from setuptools import setup
+import setuptools
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-setup(
+setuptools.setup(
     name="NekoMimi",
-    version="1.0.4",
+    version="1.0.5",
     author="NekoMimi",
     author_email="mrcreaperwhantsadingdongtobedo@gmail.com",
     description="A handy collection of tools",
@@ -20,7 +20,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=['NekoMimi'],
-    scripts=['src/NekoMimi.py','src/__init__.py'],
+    package_dir={"": "src"},
+    packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
 )
