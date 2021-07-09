@@ -1,9 +1,9 @@
-import setuptools
+from setuptools import setup
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-setuptools.setup(
+setup(
     name="NekoMimi",
     version="1.0.4",
     author="NekoMimi",
@@ -20,7 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(),
+    packages=['NekoMimi'],
+    scripts=['src/NekoMimi.py','src/__init__.py'],
     python_requires=">=3.6",
 )
