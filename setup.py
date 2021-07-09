@@ -18,6 +18,6 @@ setuptools.setup(
     ],                                      
     python_requires='>=3.6',               
     py_modules=["NekoMimi"],             
-    package_dir={'':'src'},     
+    package_dir={'src':''},     
     install_requires=['pyfiglet']                     
 )

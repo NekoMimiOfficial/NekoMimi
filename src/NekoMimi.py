@@ -9,7 +9,7 @@ def figlet(text, mode="small"):
 
 def urban(query):
     try:
-        urban = requests.get(f'https://api.urbandictionary.com/v0/define?term={search}')
+        urban = requests.get(f'https://api.urbandictionary.com/v0/define?term={query}')
         url = json.loads(urban.text)
     except Exception:
         return "Urban API returned invalid data... might be down or your IP is banned."
