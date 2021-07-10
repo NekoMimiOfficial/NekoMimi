@@ -10,3 +10,5 @@ please note that this shouldn't be used by the public in this phase
 ```python
   pip3 install NekoMimi
 ```
+
+docs are in https://github.com/NekoKitsune/NekoMimi/src/Docs/README.md
