@@ -11,4 +11,4 @@ please note that this shouldn't be used by the public in this phase
   pip3 install NekoMimi
 ```
 
-docs are in https://github.com/NekoKitsune/NekoMimi/src/Docs/README.md
+docs are in https://github.com/NekoKitsune/NekoMimi/blob/main/src/Docs/README.md
