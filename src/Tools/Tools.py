@@ -1,6 +1,10 @@
 from pyfiglet import Figlet
 import requests
 import json
+import os
+
+def version():
+    return "1.0.5"
 
 def figlet(text, mode="small"):
     f = Figlet(font=mode)
@@ -22,3 +26,25 @@ def urban(query):
 
     result = sorted(url['list'], reverse=True, key=lambda g: int(g["thumbs_up"]))[0]
     return result[0]
+
+def jsonAPI(endpoint):
+    url = requests.get(endpoint)
+    outputJson = json.loads(url.text)
+    return outputJson
+
+def writeToFile(data,file):
+    fappen = open(file,"wb")
+    fappen.write(data)
+    fappen.close()
+    return "Done !"
+
+def ReadFromFile(file):
+    fappen = open(file,"rb")
+    rd = fappen.read()
+    fappen.close()
+    return rd
+
+def brainshopAi(bid,secret,msg):
+    url = f'http://api.brainshop.ai/get?bid={bid}&key={secret}&uid=[42]&msg={msg}'
+    response = jsonAPI(url)
+    return response['cnt']
