@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="NekoMimi",
-    version="1.0.5",
+    version="1.0.6",
     author="NekoMimi",
     author_email="mrcreaperwhantsadingdongtobedo@gmail.com",
     description="A handy collection of tools",

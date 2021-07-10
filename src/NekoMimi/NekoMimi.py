@@ -1,10 +1,9 @@
 from pyfiglet import Figlet
 import requests
 import json
-import os
 
 def version():
-    return "1.0.5"
+    return "1.0.6"
 
 def figlet(text, mode="small"):
     f = Figlet(font=mode)
@@ -33,13 +32,17 @@ def jsonAPI(endpoint):
     return outputJson
 
 def writeToFile(data,file):
-    fappen = open(file,"wb")
-    fappen.write(data)
-    fappen.close()
-    return "Done !"
+    try:
+        fappen = open(file,"w")
+        fappen.write(data)
+        fappen.close()
+        return "Done !"
+    except(Exception):
+        print (Exception)
+        return "Failed !"
 
 def ReadFromFile(file):
-    fappen = open(file,"rb")
+    fappen = open(file,"r")
     rd = fappen.read()
     fappen.close()
     return rd
