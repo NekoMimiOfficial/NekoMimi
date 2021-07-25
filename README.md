@@ -3,12 +3,18 @@
 this is a python package to make your code look nicer and smaller
 supports most used modules to make it easy to work with them and to have less of that copy-paste action
 
-currently in alpha phase
+currently in `alpha phase`
 
-please note that this shouldn't be used by the public in this phase
 
-```python
+```shell
   pip3 install NekoMimi
 ```
 
-docs are in https://github.com/NekoKitsune/NekoMimi/blob/main/src/Docs/README.md
+to import
+```python
+  import NekoMimi
+```
+
+&nbsp;
+
+docs are available [here](https://github.com/NekoKitsune/NekoMimi/blob/main/Docs/README.md)

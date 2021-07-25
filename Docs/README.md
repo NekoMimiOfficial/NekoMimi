@@ -38,3 +38,12 @@ self explandatory
 save this to a variable
 also self explandatory
 ```
+
+# banner(text)
+```
+creates a banner best suited for app startups
+Generates in random styles
+save this to a variable
+```
+
+NekoMimi Python Module is made for ease-of-use and to be a good begginer friendly module
