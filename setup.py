@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="NekoMimi",
-    version="1.0.6",
+    version="1.0.7",
     author="NekoMimi",
     author_email="mrcreaperwhantsadingdongtobedo@gmail.com",
     description="A handy collection of tools",
@@ -20,8 +20,8 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "src"},
+    package_dir={"./": "NekoMimi/"},
     install_requires = ['pyfiglet','requests'],
-    packages=setuptools.find_packages(where="src"),
+    packages=setuptools.find_packages(),
     python_requires=">=3.6",
 )
