@@ -3,7 +3,6 @@ from pyfiglet import Figlet
 import random
 import requests
 import json
-from bs4 import BeautifulSoup
 
 
 def nekoBanner():
@@ -76,55 +75,3 @@ def isUp(url):
         return True
     else:
         return False
-
-def getById(url,ID,gText=True):
-    req = requests.get(url)
-    if req.status_code == 200:
-        request = requests.get(url)
-        soup = BeautifulSoup(request.content,'html.parser')
-        if gText == True:
-            search = soup.find(id=ID).get_text()
-        else:
-            search = soup.find(id=ID)
-        return search
-    else:
-        return "URL is Down"
-
-def getByClass(url,tag,classz,gText=True):
-    req = requests.get(url)
-    if req.status_code == 200:
-        request = requests.get(url)
-        soup = BeautifulSoup(request.content,'html.parser')
-        if gText == True:
-            search = soup.find(tag,class_=classz).get_text()
-        else:
-            search = soup.find(tag,class_=classz)
-        return search
-    else:
-        return "URL is Down"
-
-def getAllById(url,ID,gText=True):
-    req = requests.get(url)
-    if req.status_code == 200:
-        request = requests.get(url)
-        soup = BeautifulSoup(request.content,'html.parser')
-        if gText == True:
-            search = soup.find_all(id=ID).get_text()
-        else:
-            search = soup.find_all(id=ID)
-        return search
-    else:
-        return "URL is Down"
-
-def getAllByClass(url,tag,classz,gText=True):
-    req = requests.get(url)
-    if req.status_code == 200:
-        request = requests.get(url)
-        soup = BeautifulSoup(request.content,'html.parser')
-        if gText == True:
-            search = soup.find_all(tag,class_=classz).get_text()
-        else:
-            search = soup.find_all(tag,class_=classz)
-        return search
-    else:
-        return "URL is Down"
