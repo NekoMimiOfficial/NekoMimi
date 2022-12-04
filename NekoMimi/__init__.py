@@ -69,3 +69,25 @@ def isUp(url):
         return True
     else:
         return req.status_code
+
+def nekoBinConverter(num: int):
+    num = num + 1
+    init = 0
+    _bin = "b"
+    while init < num:
+        if init == 0:
+            init = 1
+        init = init * 2
+    if init >= 1:
+        init = init / 2
+    init = int(init)
+    while not init == 0:
+        if num > init:
+            num = num - init
+            _bin = _bin + "1"
+        else:
+            _bin = _bin + "0"
+        if init == 1:
+            init = 0
+        init = init / 2
+    return _bin
