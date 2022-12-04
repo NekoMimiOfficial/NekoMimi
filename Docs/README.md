@@ -1,6 +1,6 @@
-# version()
+# version
 ```
-outputs version
+a variable containing the latest version
 ```
 
 # figlet(text,font='small')
@@ -12,6 +12,7 @@ defaults to "small" FIGlet font if font not specified
 # urban(term)
 ```
 searches the urban dictionary for a "term"
+returns an array of all the values a term off urban would have
 ```
 
 # jsonAPI(url)
@@ -28,12 +29,12 @@ sends a request to BrainShop.ai API then retrieves data from AI
 good to use for a ChatBot
 ```
 
-# writeToFile(data,file)
+# write(data,file)
 ```
 self explandatory
 ```
 
-# readFromFile(file)
+# read(file)
 ```
 save this to a variable
 also self explandatory
@@ -44,6 +45,14 @@ also self explandatory
 creates a banner best suited for app startups
 Generates in random styles
 save this to a variable
+```
+
+# isUp(website)
+```
+checks if a given website is up or not
+returns True if its up with a response code of 200
+returns False if the site is down
+returns the response code if the site is up but not functioning correctly
 ```
 
 NekoMimi Python Module is made for ease-of-use and to be a good begginer friendly module
