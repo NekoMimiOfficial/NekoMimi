@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: NekoMimi
+Version: 1.0.8
+Summary: A module to assist coding in python with useful shortcuts and tools
+Home-page: https://github.com/NekoMimiOfficial/NekoMimi
+Author: NekoMimi
+Author-email: nekomimi@tilde.team
+Project-URL: Bug Tracker, https://github.com/NekoMimiOfficial/NekoMimi/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# NekoMimi Python Module
+
+this is a python package to make your code look nicer and smaller
+supports most used modules to make it easy to work with them and to have less of that copy-paste action
+
+currently in `alpha phase`
+
+
+```shell
+  pip3 install NekoMimi
+```
+
+to import
+```python
+  import NekoMimi
+```
+
+&nbsp;
+
+docs are available [here](https://github.com/NekoKitsune/NekoMimi/blob/main/Docs/README.md)

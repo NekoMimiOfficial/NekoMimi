@@ -5,15 +5,15 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="NekoMimi",
-    version="1.0.7",
+    version="1.0.8",
     author="NekoMimi",
-    author_email="mrcreaperwhantsadingdongtobedo@gmail.com",
-    description="A handy collection of tools",
+    author_email="nekomimi@tilde.team",
+    description="A module to assist coding in python with useful shortcuts and tools",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/NekoKitsune/NekoMimi",
+    url="https://github.com/NekoMimiOfficial/NekoMimi",
     project_urls={
-        "Bug Tracker": "https://github.com/NekoKitsune/NekoMimi/issues",
+        "Bug Tracker": "https://github.com/NekoMimiOfficial/NekoMimi/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

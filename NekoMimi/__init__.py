@@ -5,16 +5,7 @@ import requests
 import json
 
 
-def nekoBanner():
-    text = "NekoMimi"
-    fonts = ['small' , 'slant' , 'mini' , 'banner' , 'big']
-    mode = random.choice(fonts)
-    f = Figlet(font=mode)
-    render = f.renderText(text)
-    return render
-
-def version():
-    return "1.0.7"
+version = "1.0.8"
 
 def figlet(text, mode="small"):
     f = Figlet(font=mode)
@@ -35,14 +26,14 @@ def urban(query):
         return "Couldn't find your search in the dictionary..."
 
     result = sorted(url['list'], reverse=True, key=lambda g: int(g["thumbs_up"]))[0]
-    return result[0]
+    return result
 
 def jsonAPI(endpoint):
     url = requests.get(endpoint)
     outputJson = json.loads(url.text)
     return outputJson
 
-def writeToFile(data,file):
+def write(data,file):
     try:
         fappen = open(file,"w")
         fappen.write(data)
@@ -52,7 +43,7 @@ def writeToFile(data,file):
         print (Exception)
         return "Failed !"
 
-def ReadFromFile(file):
+def read(file):
     fappen = open(file,"r")
     rd = fappen.read()
     fappen.close()
@@ -70,8 +61,11 @@ def banner(name):
     return benner
 
 def isUp(url):
-    req = requests.get(url)
+    try:
+        req = requests.get(url)
+    except:
+        return False
     if req.status_code == 200:
         return True
     else:
-        return False
+        return req.status_code
