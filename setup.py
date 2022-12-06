@@ -21,7 +21,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"./": "NekoMimi/"},
-    install_requires = ['pyfiglet','requests','BeautifulSoup4'],
+    install_requires = ['pyfiglet', 'requests', 'BeautifulSoup4', 'termcolor'],
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
 )

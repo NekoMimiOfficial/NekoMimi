@@ -3,6 +3,7 @@ from pyfiglet import Figlet
 import random
 import requests
 import json
+from termcolor import colored, cprint
 
 
 version = "1.0.8"
@@ -91,3 +92,15 @@ def nekoBinConverter(num: int):
             init = 0
         init = init / 2
     return _bin
+
+def red(text):
+    return cprint(text, 'red')
+
+def green(text):
+    return cprint(text, 'green')
+
+def yellow(text):
+    return cprint(text, 'yellow')
+
+def blue (text):
+    return cprint(text, 'blue')

@@ -55,4 +55,14 @@ returns False if the site is down
 returns the response code if the site is up but not functioning correctly
 ```
 
+# red(text) blue(text) yellow(text) green(text)
+```
+functions which print text in a single color
+```
+
+# nekoBinConverter(int)
+```
+a silly tool that uses a non standard algorithm to convert a positive integer into binary form, totally unpractical but its there for its non standard operation
+```
+
 NekoMimi Python Module is made for ease-of-use and to be a good begginer friendly module
