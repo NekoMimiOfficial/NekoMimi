@@ -17,4 +17,4 @@ to import
 
 &nbsp;
 
-docs are available [here](https://github.com/NekoKitsune/NekoMimi/blob/main/Docs/README.md)
+docs are available [here](https://github.com/NekoMimiOfficial/NekoMimi/blob/main/Docs/README.md)
