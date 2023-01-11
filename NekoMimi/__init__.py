@@ -6,7 +6,7 @@ import json
 from termcolor import colored, cprint
 
 
-version = "1.0.8"
+version = "1.0.9"
 
 def figlet(text, mode="small"):
     f = Figlet(font=mode)
@@ -104,3 +104,9 @@ def yellow(text):
 
 def blue (text):
     return cprint(text, 'blue')
+
+def debug(flag,debug):
+    if flag == 1:
+        yellow("[DEBUG] "+debug)
+    else:
+        pass

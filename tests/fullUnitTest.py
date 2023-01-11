@@ -12,5 +12,9 @@ nm.blue(nm.urban('NekoMimi'))
 #isUP test
 nm.blue(f"{nm.isUp('https://google.com')} is the status of google.com")
 
+#debug
+debug = 1
+nm.debug(debug, "Debug message")
+
 #done
 nm.green("Unit test completed")
