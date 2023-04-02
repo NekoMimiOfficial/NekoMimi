@@ -8,7 +8,7 @@ from termcolor import colored, cprint
 
 version = "1.0.9"
 
-class renderColor:
+class colorFactory:
     
     text = "Colour"
     colour = "ffaa00"

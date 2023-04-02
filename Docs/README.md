@@ -65,4 +65,31 @@ functions which print text in a single color
 a silly tool that uses a non standard algorithm to convert a positive integer into binary form, totally unpractical but its there for its non standard operation
 ```
 
+#debug(message)
+```
+similar to print() accepts 1 argument which is the debug message
+will only print it to the console if "DEBUG" (without "") is in argv
+```
+
+#colorFactory() "class"
+```
+a class which you can write (only write) text with all 256 xterm colors
+initialize the class in a variable then edit (text) and (colour) and (newline*)
+then initialize the output via cinit()
+and finally print the output with cprint()
+
+example:
+factory = colorFactory()
+factory.text = "Nekos are cute!"
+factory.colour = "ff0088"
+factory.cinit()
+factory.cprint()
+
+you can use both hex values and 0-255 xterm colours
+
+*: newline is optional and its a Bool , defaults to True
+   and is made so you can print multiple colours on the same line binary
+   by calling the class again or with regular print()
+```
+
 NekoMimi Python Module is made for ease-of-use and to be a good begginer friendly module
