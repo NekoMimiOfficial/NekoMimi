@@ -3,8 +3,13 @@ from pyfiglet import Figlet
 import random
 import requests
 import json
+import sys
 from termcolor import colored, cprint
 
+def _setDebug(bit):
+    _nmDebugFlag = bit
+
+_setDebug(1) if "DEBUG" in sys.argv else _setDebug(0)
 
 version = "1.0.9"
 
@@ -105,8 +110,8 @@ def yellow(text):
 def blue (text):
     return cprint(text, 'blue')
 
-def debug(flag,debug):
-    if flag == 1:
+def debug(debug):
+    if _nmDebugFlag == 1:
         yellow("[DEBUG] "+debug)
     else:
         pass
