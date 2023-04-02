@@ -1,17 +1,27 @@
-# __init__.py
 from pyfiglet import Figlet
 import random
 import requests
 import json
 import sys
+import colortrans
 from termcolor import colored, cprint
 
-def _setDebug(bit):
-    _nmDebugFlag = bit
-
-_setDebug(1) if "DEBUG" in sys.argv else _setDebug(0)
-
 version = "1.0.9"
+
+class renderColor:
+    
+    text = "Colour"
+    colour = "ffaa00"
+    newline = True
+    prefix = ""
+    suffix = "\n"
+
+    def cinit(self):
+        self.prefix, self.suffix = colortrans.printCC(self.text, self.colour, self.newline)
+
+    def cprint(self):
+        sys.stdout.write(self.prefix)
+        sys.stdout.write(self.suffix)
 
 def figlet(text, mode="small"):
     f = Figlet(font=mode)
@@ -111,7 +121,7 @@ def blue (text):
     return cprint(text, 'blue')
 
 def debug(debug):
-    if _nmDebugFlag == 1:
+    if "DEBUG" in sys.argv:
         yellow("[DEBUG] "+debug)
     else:
         pass
