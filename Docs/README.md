@@ -71,7 +71,7 @@ similar to print() accepts 1 argument which is the debug message
 will only print it to the console if "DEBUG" (without "") is in argv
 ```
 
-#colorFactory() "class"
+#colourFactory() "class"
 ```
 a class which you can write (only write) text with all 256 xterm colors
 initialize the class in a variable then edit (text) and (colour) and (newline*)
@@ -79,7 +79,7 @@ then initialize the output via cinit()
 and finally print the output with cprint()
 
 example:
-factory = colorFactory()
+factory = colourFactory()
 factory.text = "Nekos are cute!"
 factory.colour = "ff0088"
 factory.cinit()

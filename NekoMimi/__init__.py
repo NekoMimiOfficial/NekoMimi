@@ -8,7 +8,7 @@ from termcolor import colored, cprint
 
 version = "1.0.9"
 
-class colorFactory:
+class colourFactory:
     
     text = "Colour"
     colour = "ffaa00"
@@ -125,3 +125,6 @@ def debug(debug):
         yellow("[DEBUG] "+debug)
     else:
         pass
+
+if __name__ == "__main__":
+    pass #adding preprocessor
