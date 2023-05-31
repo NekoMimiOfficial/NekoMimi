@@ -12,8 +12,8 @@ I'm not sure where this script was inspired from. I think I must have
 written it from scratch, though it's been several years now.
 """
 
-__author__    = 'Micah Elliott http://MicahElliott.com'
-__version__   = '0.1'
+__author__    = 'Micah Elliott http://MicahElliott.com & NekoMimi nekomimi@tilde,team'
+__version__   = '0.1.1'
 __copyright__ = 'Copyright (C) 2011 Micah Elliott.  All rights reserved.'
 __license__   = 'WTFPL http://sam.zoy.org/wtfpl/'
 
@@ -372,3 +372,18 @@ def printCC(text, arg, newline=True):
             suffix = "\n"
 
     return prefix, suffix
+
+class colourFactory:
+
+    text = "Sample Text"
+    colour = "ff0088"
+    newline = True
+    prefix = ""
+    suffix = ""
+
+    def cinit(self):
+        self.prefix, self.suffix = printCC(self.text, self.colour, self.newline)
+
+    def cprint(self):
+        sys.stdout.write(self.prefix)
+        sys.stdout.write(self.suffix)

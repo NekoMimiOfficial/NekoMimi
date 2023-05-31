@@ -1,4 +1,4 @@
-import NekoMimi as nm
+from NekoMimi import tools as nm
 
 #Figlet test also tests the banner and colors
 nm.yellow(nm.figlet("NekoMimi","larry3d"))

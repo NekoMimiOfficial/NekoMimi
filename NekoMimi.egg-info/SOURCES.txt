@@ -3,7 +3,10 @@ README.md
 pyproject.toml
 setup.py
 NekoMimi/__init__.py
-NekoMimi/colortrans.py
+NekoMimi/__main__.py
+NekoMimi/colourimi.py
+NekoMimi/globalVariables.py
+NekoMimi/tools.py
 NekoMimi.egg-info/PKG-INFO
 NekoMimi.egg-info/SOURCES.txt
 NekoMimi.egg-info/dependency_links.txt
