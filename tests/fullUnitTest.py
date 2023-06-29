@@ -1,20 +1,31 @@
 from NekoMimi import tools as nm
+from NekoMimi import colourimi as cimi
+from NekoMimi import consoleToys as cty
+
+cty._defColour = "FFCA00"
 
 #Figlet test also tests the banner and colors
-nm.yellow(nm.figlet("NekoMimi","larry3d"))
+cty.kprint(nm.figlet("NekoMimi","larry3d"))
 
 #binary
-nm.blue(nm.nekoBinConverter(511))
+print(nm.nekoBinConverter(511))
 
 #urban test which also tests jsonAPI
-nm.blue(nm.urban('NekoMimi'))
+print(nm.urban('NekoMimi'))
 
 #isUP test
-nm.blue(f"{nm.isUp('https://google.com')} is the status of google.com")
+print(f"{nm.isUp('https://google.com')} is the status of google.com")
 
 #debug
 #add -v for debug
 nm.debug("Debug message")
 
+factory = cimi.colourFactory()
+def nyaPrint(text, colour="00FF44"):
+    factory.colour = colour
+    factory.text = text
+    factory.cinit()
+    factory.cprint()
+
 #done
-nm.green("Unit test completed")
+nyaPrint("Unit test completed")

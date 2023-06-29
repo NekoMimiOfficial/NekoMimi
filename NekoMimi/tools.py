@@ -2,9 +2,6 @@ from pyfiglet import Figlet
 import random
 import requests
 import json
-import sys
-from termcolor import colored, cprint
-
 
 
 def figlet(text, mode="small"):
@@ -12,9 +9,10 @@ def figlet(text, mode="small"):
     render = f.renderText(text)
     return render
 
+
 def urban(query):
     try:
-        urban = requests.get(f'https://api.urbandictionary.com/v0/define?term={query}')
+        urban = requests.get(f"https://api.urbandictionary.com/v0/define?term={query}")
         url = json.loads(urban.text)
     except Exception:
         return "Urban API returned invalid data... might be down or your IP is banned."
@@ -22,43 +20,49 @@ def urban(query):
     if not url:
         return "I think the API broke..."
 
-    if not len(url['list']):
+    if not len(url["list"]):
         return "Couldn't find your search in the dictionary..."
 
-    result = sorted(url['list'], reverse=True, key=lambda g: int(g["thumbs_up"]))[0]
+    result = sorted(url["list"], reverse=True, key=lambda g: int(g["thumbs_up"]))[0]
     return result
+
 
 def jsonAPI(endpoint):
     url = requests.get(endpoint)
     outputJson = json.loads(url.text)
     return outputJson
 
-def write(data,file):
+
+def write(data, file):
     try:
-        fappen = open(file,"w")
+        fappen = open(file, "w")
         fappen.write(data)
         fappen.close()
         return True, 0
-    except(Exception):
-        print (Exception)
+    except Exception:
+        print(Exception)
         return False, Exception
 
+
 def read(file):
-    fappen = open(file,"r")
+    fappen = open(file, "r")
     rd = fappen.read()
     fappen.close()
     return rd
 
-def brainshopAi(bid,secret,msg):
-    url = f'http://api.brainshop.ai/get?bid={bid}&key={secret}&uid=[42]&msg={msg}'
+
+def brainshopAi(bid, secret, msg):
+    url = f"http://api.brainshop.ai/get?bid={bid}&key={secret}&uid=[42]&msg={msg}"
     response = jsonAPI(url)
-    return response['cnt']
+    return response["cnt"]
+
 
 def banner(name):
-    fonts = ['small' , 'slant' , 'mini' , 'banner' , 'big']
+    fonts = ["small", "slant", "mini", "banner", "big"]
     mode = random.choice(fonts)
-    benner = figlet(name,mode)
+    benner = figlet(name, mode)
     return benner
+
 
 def isUp(url):
     try:
@@ -69,6 +73,7 @@ def isUp(url):
         return True
     else:
         return req.status_code
+
 
 def nekoBinConverter(num: int):
     num = num + 1
@@ -91,24 +96,3 @@ def nekoBinConverter(num: int):
             init = 0
         init = init / 2
     return _bin
-
-def red(text):
-    return cprint(text, 'red')
-
-def green(text):
-    return cprint(text, 'green')
-
-def yellow(text):
-    return cprint(text, 'yellow')
-
-def blue (text):
-    return cprint(text, 'blue')
-
-def debug(debug):
-    if "DEBUG" in sys.argv:
-        yellow("[DEBUG] "+debug)
-    else:
-        pass
-
-if __name__ == "__main__":
-    pass #adding preprocessor
