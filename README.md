@@ -4,7 +4,7 @@ NekoMimi is my personal python module that I and my friends use to ease up codin
 it aims to get more simple things done without having to write the same code for each project again and again  
 I'm trying to add more features that help people and im always on the look for useful shortcuts to be added so if you got any ideas feel free to contact me (links below)  
 
-currently in `alpha phase`
+currently in `beta phase`
 
 
 # Installation

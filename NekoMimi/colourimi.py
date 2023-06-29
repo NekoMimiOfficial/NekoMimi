@@ -9,7 +9,9 @@ Resources:
 * /usr/share/X11/rgb.txt
 
 I'm not sure where this script was inspired from. I think I must have
-written it from scratch, though it's been several years now.
+written it from scratch, though it's been several years now. (MicahElliott)
+
+And I came to turn this wonderful script into a modular tool (NekoMimi)
 """
 
 __author__    = 'Micah Elliott http://MicahElliott.com & NekoMimi nekomimi@tilde,team'
@@ -289,10 +291,10 @@ CLUT = [  # color look-up table
     ('255', 'eeeeee'),
 ]
 
-def _str2hex(hexstr):
-    return int(hexstr, 16)
+# def _str2hex(hexstr:str) -> int:
+#     return int(hexstr, 16)
 
-def _strip_hash(rgb):
+def _strip_hash(rgb:str) -> str:
     # Strip leading `#` if exists.
     if rgb.startswith('#'):
         rgb = rgb.lstrip('#')
@@ -305,19 +307,19 @@ def _create_dicts():
         rgb2short_dict[v] = k
     return rgb2short_dict, short2rgb_dict
 
-def short2rgb(short):
+def short2rgb(short:str):
     return SHORT2RGB_DICT[short]
 
-def print_all():
-    """ Print all 256 xterm color codes.
-    """
-    for short, rgb in CLUT:
-        sys.stdout.write('\033[48;5;%sm%s:%s' % (short, short, rgb))
-        sys.stdout.write("\033[0m  ")
-        sys.stdout.write('\033[38;5;%sm%s:%s' % (short, short, rgb))
-        sys.stdout.write("\033[0m\n")
-    print ("Printed all codes.")
-    print ("You can translate a hex or 0-255 code by providing an argument.")
+# def print_all():
+#     """ Print all 256 xterm color codes.
+#     """
+#     for short, rgb in CLUT:
+#         sys.stdout.write('\033[48;5;%sm%s:%s' % (short, short, rgb))
+#         sys.stdout.write("\033[0m  ")
+#         sys.stdout.write('\033[38;5;%sm%s:%s' % (short, short, rgb))
+#         sys.stdout.write("\033[0m\n")
+#     print ("Printed all codes.")
+#     print ("You can translate a hex or 0-255 code by providing an argument.")
 
 def rgb2short(rgb):
     """ Find the closest xterm-256 approximation to the given RGB value.
@@ -348,25 +350,26 @@ def rgb2short(rgb):
                 break
             i += 1
     #print '***', res
-    res = ''.join([ ('%02.x' % i) for i in res ])
+    #res = ''.join([ ('%02.x' % i) for i in res ])
     equiv = RGB2SHORT_DICT[ res ]
     #print '***', res, equiv
-    return equiv, res
+    return equiv
 
 RGB2SHORT_DICT, SHORT2RGB_DICT = _create_dicts()
 
 #---------------------------------------------------------------------
 
-def printCC(text, arg, newline=True):
+def printCC(text:str, arg:str, newline:bool=True):
     import doctest
     doctest.testmod()
+    prefix:str = ""
+    suffix:str = ""
     if len(arg) < 4 and int(arg) < 256:
-        rgb = short2rgb(arg)
         prefix = '\033[38;5;%sm%s\033[0m'% (arg, text)
         if newline == True:
             suffix = "\n"
     else:
-        short, rgb = rgb2short(arg)
+        short = rgb2short(arg)
         prefix = '\033[38;5;%sm%s\033[0m'% (short, text)
         if newline == True:
             suffix = "\n"
@@ -375,15 +378,17 @@ def printCC(text, arg, newline=True):
 
 class colourFactory:
 
-    text = "Sample Text"
-    colour = "ff0088"
-    newline = True
-    prefix = ""
-    suffix = ""
+    text:str = "Sample Text"
+    colour:str = "ff0088"
+    newline:bool = True
+    prefix:str = ""
+    suffix:str = ""
 
-    def cinit(self):
+    def cinit(self) -> None:
         self.prefix, self.suffix = printCC(self.text, self.colour, self.newline)
+        return
 
-    def cprint(self):
+    def cprint(self) -> None:
         sys.stdout.write(self.prefix)
         sys.stdout.write(self.suffix)
+        return
