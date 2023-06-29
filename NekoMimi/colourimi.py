@@ -307,8 +307,8 @@ def _create_dicts():
         rgb2short_dict[v] = k
     return rgb2short_dict, short2rgb_dict
 
-def short2rgb(short:str):
-    return SHORT2RGB_DICT[short]
+# def short2rgb(short:str):
+#     return SHORT2RGB_DICT[short]
 
 # def print_all():
 #     """ Print all 256 xterm color codes.
@@ -359,7 +359,7 @@ RGB2SHORT_DICT, SHORT2RGB_DICT = _create_dicts()
 
 #---------------------------------------------------------------------
 
-def printCC(text:str, arg:str, newline:bool=True):
+def _printCC(text:str, arg:str, newline:bool=True):
     import doctest
     doctest.testmod()
     prefix:str = ""
@@ -378,6 +378,26 @@ def printCC(text:str, arg:str, newline:bool=True):
 
 class colourFactory:
 
+    """ colour constructor and applying class
+        initialize once
+        >>> factory = colourFactory()
+        >>> factory.text = 'test' #possible objects: text, colour, newline
+        >>> factory.cinit() #sets prefix and suffix which can be changed manually
+        >>> factory.cprint() #prints text between prefix and suffix
+        test (default color: ff0088)
+
+        @param class.text: text to be written
+        @param class.colour: colour of text
+        @param classs.newline: (bool) to print a newline at end
+        @param class.prefix: gets set to the color prefix on class.cinit()
+        @param class.suffix: gets set to terminator and newline on class.cinit()
+        @result: class object
+
+        functions:
+            cinit() for color initialization
+            cprint() fo rprinting the initialized text
+    """
+
     text:str = "Sample Text"
     colour:str = "ff0088"
     newline:bool = True
@@ -385,10 +405,16 @@ class colourFactory:
     suffix:str = ""
 
     def cinit(self) -> None:
-        self.prefix, self.suffix = printCC(self.text, self.colour, self.newline)
+        """
+        colour initilizor, call before cprint()
+        """
+        self.prefix, self.suffix = _printCC(self.text, self.colour, self.newline)
         return
 
     def cprint(self) -> None:
+        """
+        simply prints the initialized text
+        """
         sys.stdout.write(self.prefix)
         sys.stdout.write(self.suffix)
         return
