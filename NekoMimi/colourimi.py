@@ -384,7 +384,7 @@ class colourFactory:
         >>> factory.text = 'test' #possible objects: text, colour, newline
         >>> factory.cinit() #sets prefix and suffix which can be changed manually
         >>> factory.cprint() #prints text between prefix and suffix
-        test (default color: ff0088)
+        test (default color: #ff0088)
 
         @param class.text: text to be written
         @param class.colour: colour of text
