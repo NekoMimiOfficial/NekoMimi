@@ -1,4 +1,0 @@
-pyfiglet
-requests
-BeautifulSoup4
-termcolor
