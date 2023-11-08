@@ -350,7 +350,7 @@ def rgb2short(rgb):
                 break
             i += 1
     #print '***', res
-    #res = ''.join([ ('%02.x' % i) for i in res ])
+    res = ''.join([ ('%02.x' % i) for i in res ])
     equiv = RGB2SHORT_DICT[ res ]
     #print '***', res, equiv
     return equiv
