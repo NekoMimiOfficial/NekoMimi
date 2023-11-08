@@ -292,7 +292,7 @@ CLUT = [  # color look-up table
 ]
 
 # def _str2hex(hexstr:str) -> int:
-#     return int(hexstr, 16)
+    # return int(hexstr, 16)
 
 def _strip_hash(rgb:str) -> str:
     # Strip leading `#` if exists.
@@ -307,8 +307,8 @@ def _create_dicts():
         rgb2short_dict[v] = k
     return rgb2short_dict, short2rgb_dict
 
-# def short2rgb(short:str):
-#     return SHORT2RGB_DICT[short]
+def short2rgb(short:str):
+    return SHORT2RGB_DICT[short]
 
 # def print_all():
 #     """ Print all 256 xterm color codes.

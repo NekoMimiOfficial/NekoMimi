@@ -1,6 +1,6 @@
-from NekoMimi import tools as nm
+from NekoMimi import utils as nm
 from NekoMimi import colourimi as cimi
-from NekoMimi import consoleToys as cty
+from NekoMimi.legacy import consoleToys as cty
 
 cty._defColour = "FFCA00"
 
