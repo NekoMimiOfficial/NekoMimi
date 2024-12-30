@@ -1,13 +1,13 @@
 LICENSE
 README.md
-pyproject.toml
 setup.py
+NekoMimi/__init__.py
 NekoMimi/__main__.py
 NekoMimi/_builtin.py
 NekoMimi/colourimi.py
 NekoMimi/consoleToys.py
+NekoMimi/reg.py
 NekoMimi/utils.py
-NekoMimi.egg-info/.gitignore
 NekoMimi.egg-info/PKG-INFO
 NekoMimi.egg-info/SOURCES.txt
 NekoMimi.egg-info/dependency_links.txt
