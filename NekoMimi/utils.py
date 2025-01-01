@@ -1,7 +1,9 @@
 from io import TextIOWrapper
 import requests
 import json
+import sys
 from pyfiglet import Figlet
+from importlib import import_module
 
 """
 General set of useful utilities
@@ -78,6 +80,8 @@ def read(file: str) -> str:
     single line read command
     @arg file: string containing file to read
     @return: file on fail, contents on success
+    >>> NekoMimi.utils.read("path/to/file.ext")
+    DATA_OF_FILE
     """
     try:
         buffer = open(file, "r")
@@ -103,7 +107,7 @@ def isUp(url: str) -> int:
     uptime command, checks if url is up
     @arg url: a string containing the url
     @return: 0 if down, requests.status_code if up
-    >>> NekoMimi.utilities.isUp("http://site.ex")
+    >>> NekoMimi.utils.isUp("http://site.ex")
     200
     """
     
@@ -118,4 +122,20 @@ def isUp(url: str) -> int:
 
     return req.status_code
 
+def uwuport(module: str)-> bool:
+    """
+    ever wished to import a module in code?
+    your wishes have come true :3
+    @arg module: module name, including local modules and files
+    @return: True on success, False otherwise
+    >>> NekoMimi.utils.uwuport("NekoMimi")
+    True
+    """
+    try:
+        sys.path.append('.')
+        mod= import_module(module)
+    except Exception:
+        return False
 
+    sys.modules[module]= mod
+    return True

@@ -39,9 +39,10 @@ def __CMD_help(ctx: system.context):
     helpmsg= """
 NekoPyShell Help Page
 ~~~~~~~~~~~~~~~~~~~~~
+
 echo:   echos the message appended
 reg:    mini registry for single word values
-~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
 type help module_name, for more details about a specific command"""
 
     if " " in ctx.args:
