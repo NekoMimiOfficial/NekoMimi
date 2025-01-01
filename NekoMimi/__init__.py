@@ -22,8 +22,8 @@ __target__ = "OS Independent"
 __requirements__ = ['aiohttp']
 ##################################
 
-__version__ = '1.1.1'
-__build__ = 0x010001
+__version__ = '1.1.2'
+__build__ = 0x010003
 
 """
 Build number policy:

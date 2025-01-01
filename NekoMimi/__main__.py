@@ -2,6 +2,8 @@ from subprocess import getoutput
 from os.path import exists
 import pickle
 
+from NekoMimi import consoleToys
+
 class system:
     def __init__(self) -> None:
         self.modules:dict = {}
@@ -29,6 +31,40 @@ Factory = system()
 def __CMD_echo(ctx: system.context):
     ctx.name = "echo"
     ctx.result = ctx.args
+    return ctx
+
+@Factory.module
+def __CMD_help(ctx: system.context):
+    ctx.name= "help"
+    helpmsg= """
+NekoPyShell Help Page
+~~~~~~~~~~~~~~~~~~~~~
+echo:   echos the message appended
+reg:    mini registry for single word values
+~~~~~~~~~~~~~~~~~~~~~
+type help module_name, for more details about a specific command"""
+
+    if " " in ctx.args:
+        arg= ctx.args.split(" ")[0]
+    else:
+        arg= ctx.args
+
+    match arg:
+        case "echo":
+            ctx.result= "\n[echo $msg] echos a message, takes one argument, not space seperated"
+            return ctx
+        case "reg":
+            ctx.result= """
+[reg $operation $cell $data]
+stores single word data into cells
+takes 3 arguments, seperated by spaces, each argument is one word long
+$operation: [r:read] [w:write] [d:delete]
+$cell:      cell to store data in, case sensitive
+$data:      data to be stored into cells, still needed if the operation is read or delete
+            can be any random data for reading, specifically 'conFirm' for deleting case sensitive""" 
+            return ctx
+
+    ctx.result = helpmsg
     return ctx
 
 @Factory.module
@@ -92,9 +128,20 @@ def __CMD_regTools(ctx: system.context):
 
 
 modules = Factory.modules
+
+def promptData():
+    pwd= getoutput("pwd")
+    if pwd.endswith("/"):
+        pwd= pwd[:-1]
+    shortwd= pwd.split("/")
+    shortwd= shortwd[-2] + "/" + shortwd[-1] + "/"
+    consoleToys.kprint("NekoPyShell ", "#799DDB", False)
+    consoleToys.kprint(f"[{shortwd}] ", "#F3B993", False)
+    return "$:"
+
 def _start() -> None:
 
-    com:str = input(">")
+    com:str = input(promptData())
     while True:
         name:str = ""
         args:str = ""
@@ -113,8 +160,15 @@ def _start() -> None:
             print(ctx.result)
         elif com == "exit" or com == "quit":
             exit(0)
+        else:
+            comNames = ""
+            for mod in modules:
+                comNames = comNames + mod + ", "
+            comNames = comNames[:-2]
+            print("Unknown command, List of available commands:")
+            print(f"[{comNames}]")
 
-        com = input(">")
+        com = input(promptData())
 
 
 #run

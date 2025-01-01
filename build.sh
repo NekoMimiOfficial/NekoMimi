@@ -1,7 +1,10 @@
 #!/bin/bash
 
-rm dist/*
+rm -rf ./dist/
 
-bob
 pip3 uninstall -y NekoMimi --break-system-packages
+bob
 pip3 install dist/*.whl --break-system-packages
+
+rm -rf ./build/
+rm -rf ./NekoMimi.egg-info/
