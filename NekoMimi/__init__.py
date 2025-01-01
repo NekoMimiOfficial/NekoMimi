@@ -23,7 +23,7 @@ __requirements__ = ['aiohttp']
 ##################################
 
 __version__ = '1.1.2'
-__build__ = 0x010003
+__build__ = 0x010004
 
 """
 Build number policy:

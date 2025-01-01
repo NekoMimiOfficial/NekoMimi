@@ -5,12 +5,12 @@ Simple tools and wrappers for CLI tools
 mostly neko-fied :3
 """
 
-Factory = colourimi.colourFactory()
+_Factory = colourimi.colourFactory()
 
 def kprint(text: str, colour: str= "fcfcff", newline: bool= True)-> None:
-    Factory.text= text
-    Factory.colour= colour
-    Factory.newline= newline
-    Factory.cinit()
-    Factory.cprint()
+    _Factory.text= text
+    _Factory.colour= colour
+    _Factory.newline= newline
+    _Factory.cinit()
+    _Factory.cprint()
     return
