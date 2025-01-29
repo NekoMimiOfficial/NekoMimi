@@ -4,8 +4,8 @@ as our goals for this module is to help making your coding a bit easier then a b
 
 # Architecture and Submodules  
 * Legacy submodules wont be covered as they will be removed in `v2.0.0`  
-| SubModule      | Description       |
-|--------------- | ----------------- |
+| SubModule      | Description                                   |
+|--------------- | --------------------------------------------- |
 |   `__init__`   | Module info and classifications used by bob   |
 |   `colourimi`  | Coloured printing SubModule                   |
 |  `consoleToys` | Set of tools and wrappers for CLI apps        |

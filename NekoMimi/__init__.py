@@ -17,9 +17,9 @@ __description__ = "Multi-Tool of macros to facilitate development"
 __repository__ = "https://github.com/NekoMimiOffical/NekoMimi"
 __bug_tracker__ = "https://github.com/NekoMimiOffical/NekoMimi/issues"
 __license__ = "Apache2"
-__pyver__ = ">=3.11"
+__pyver__ = ">=3.10"
 __target__ = "OS Independent"
-__requirements__ = ['aiohttp']
+__requirements__ = ['aiohttp', 'requests', 'pyfiglet']
 ##################################
 
 __version__ = '1.2.0'

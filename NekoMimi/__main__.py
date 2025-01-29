@@ -1,8 +1,12 @@
 from subprocess import getoutput
-from os.path import exists
+from os.path import exists, isdir
 import pickle
 
+from pyfiglet import os
+
 from NekoMimi import consoleToys
+
+init= [0]
 
 class system:
     def __init__(self) -> None:
@@ -66,6 +70,49 @@ $data:      data to be stored into cells, still needed if the operation is read 
             return ctx
 
     ctx.result = helpmsg
+    return ctx
+
+@Factory.module
+def __CMD_ls(ctx: system.context):
+    ctx.name= "ls"
+    args= ctx.args
+
+    if " " in args:
+        ctx.result= "ls takes only 1 argument\nthis aint some advanced thing"
+        return ctx
+
+    if args == "":
+        args= "./"
+
+    if init[0] == 0:
+        return ctx
+
+    contents= os.listdir(args)
+    for content in contents:
+        if isdir(content):
+            cls= "#89DCEB"
+        elif content.endswith(".py"):
+            cls= "#F9E2AF"
+        elif content.endswith(".build"):
+            cls= "#799DDB"
+        elif content.endswith(".conf"):
+            cls= "#799DDB"
+        elif content.endswith(".txt"):
+            cls= "#799DDB"
+        elif content.endswith(".md"):
+            cls= "#F5C2E7"
+        else:
+            cls= "#A2DCAA"
+
+        consoleToys.kprint(content+" ", cls, False)
+    ctx.result= " "
+    return ctx
+
+@Factory.module
+def __CMD_cp(ctx: system.context):
+    ctx.name= "cp"
+    if len(ctx.args) > 1:
+        getoutput(f"cp {ctx.args}")
     return ctx
 
 @Factory.module
@@ -143,6 +190,7 @@ def promptData():
 def _start() -> None:
 
     com:str = input(promptData())
+    init[0]= 1
     while True:
         name:str = ""
         args:str = ""
