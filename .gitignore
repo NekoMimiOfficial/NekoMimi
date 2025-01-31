@@ -1,7 +1,9 @@
 build
 dist
 NekoMimi.egg-info
+NekoMimi.egg-info/
 bin
 lib
 lib64
+.mypy_cache
 pyvenv.cfg
