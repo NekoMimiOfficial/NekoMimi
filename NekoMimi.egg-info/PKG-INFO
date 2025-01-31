@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: NekoMimi
-Version: 1.2.0
+Version: 1.3.0
 Summary: Multi-Tool of macros to facilitate development
 Home-page: https://github.com/NekoMimiOffical/NekoMimi
 Author: NekoMimiOffical
@@ -13,6 +13,8 @@ Requires-Python: >=3.10
 Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: aiohttp
+Requires-Dist: requests
+Requires-Dist: pyfiglet
 
 # The NekoMimi PyModule  
 User friendly python module to automate doing repeating tasks  

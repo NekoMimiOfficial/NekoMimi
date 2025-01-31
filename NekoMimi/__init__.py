@@ -23,7 +23,7 @@ __requirements__ = ['aiohttp', 'requests', 'pyfiglet']
 ##################################
 
 __version__ = '1.3.0'
-__build__ = 0x030000
+__build__ = 0x030001
 
 """
 Build number policy:

@@ -1,4 +1,5 @@
 from io import TextIOWrapper
+from types import ModuleType
 import requests
 import json
 import sys
@@ -139,3 +140,17 @@ def uwuport(module: str)-> bool:
 
     sys.modules[module]= mod
     return True
+
+def load_mod(module: str):
+    """
+    wrapper for uwuport  
+    @arg module: module name, including local modules and files  
+    @return: ModuleType (module)  
+    >>> NekoMimi.utils.load_mod("os")
+    os (module)  
+    False  
+    """
+    if uwuport(module):
+        return sys.modules[module];
+    else:
+        return False

@@ -3,9 +3,11 @@ welcome to the documentations for the NekoMimi python module
 as our goals for this module is to help making your coding a bit easier then a befitting easy doc is a must  
 
 # Architecture and Submodules  
-* Legacy submodules wont be covered as they will be removed in `v2.0.0`  
+> [!IMPPORTANT]
+> Legacy submodules wont be covered as they will be removed in `v2.0.0`  
+
 | SubModule      | Description                                   |
-|--------------- | --------------------------------------------- |
+| -------------- | --------------------------------------------- |
 |   `__init__`   | Module info and classifications used by bob   |
 |   `colourimi`  | Coloured printing SubModule                   |
 |  `consoleToys` | Set of tools and wrappers for CLI apps        |
@@ -38,7 +40,8 @@ Whether to add a new line or write the next character on the same line
 Processes the data into a prefix and suffix to print your manipulated text  
 ### cprint (method) [None]  
 Applies and prints the manipulated text  
-
+  
+  
 # consoleToys  
 ```python
 # Usage and examples:
@@ -48,7 +51,8 @@ kprint("Hi!", "#444444")
 ```
 ## kprint (method) [None]  
 Ready wrapper for colourimi  
-
+  
+  
 # reg  
 ```python
 # Usage and examples:
@@ -58,9 +62,53 @@ data = readCell("test")
 # It also might return two string messages in case the cell doesn't exist or the registry isn't initialized:
 # cell: {cell} is not in database
 # Registry uninitialized, please use the neko shell to initialize it
+
+#the following command will initialize a Database instance
+db= Database("cabinet-id")
+#the following command queries and returns the value of a cell called "1" within "cabinet-id"
+data= db.query("1") #if the cell doesn't exist it'll return ""
+#the following command stored data into "1"
+db.store("some text data", "1")
+#the following command deletes the cell "1"
+db.remove("1")
 ```
 ## readCell (method) [str]  
 Reads the content of a cell in the NekoPyRegistry  
 
+## Database (class)  
+A class to work with databases efficiently  
+accepts one argument in the constructor (accessName)  
+this argument is what segments fields/cell from another (so you dont have to worry about confliting field names from other developers)  
+### query (method) [str]  
+returns the contents of a cell, returns "" if not found  
+### store (method) [bool]  
+returns true on success when storing data to a cell, false otherwise  
+### remove (method) [void]  
+removes a cell file completely  
+  
+  
 # utils  
-kk im beat, time to sleep lmao  
+```python
+# Usage and examples:  
+
+#the following 2 commands write "data" to a file then read the data
+write("data", "file.txt")
+data= read("file.txt")
+
+#the following command returns the status code of a request to the website, 0 if its down
+request_status_code= isUp("web.site")
+#the following command returns a string of a figlet formatted string
+figlet_converted_string= figlet("Example", "small") #using the "small" figlet font  
+
+#the following command loads a module or python script to sys.modules dynamically
+#uwuport is advised to not be used and use load_mod() instead  
+uwuport("os") #loads "os" module into sys.modules (and can only be accessed from sys.modules["os"])
+#the following command uses uwuport internally but returns a module, returns False on failure
+os= load_mod("os")
+```
+## write (method) [bool]  
+## read (method) [str]  
+## isUp (method) [int]  
+## figlet (method) [str]  
+## uwuport (method) [bool]  
+## load_mod (method) [py-module]  
