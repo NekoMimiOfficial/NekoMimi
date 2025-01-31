@@ -22,8 +22,8 @@ __target__ = "OS Independent"
 __requirements__ = ['aiohttp', 'requests', 'pyfiglet']
 ##################################
 
-__version__ = '1.2.0'
-__build__ = 0x020005
+__version__ = '1.3.0'
+__build__ = 0x030000
 
 """
 Build number policy:

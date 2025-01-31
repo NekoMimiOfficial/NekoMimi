@@ -58,4 +58,4 @@ class Database:
             return False
 
     def remove(self, field):
-        getoutput(f"rm $HOME/.config/NekoPyReg/{field}")
+        getoutput(f"rm $HOME/.config/NekoPyReg/{self.pointer}{field}")
