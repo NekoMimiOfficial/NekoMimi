@@ -65,7 +65,7 @@ def write(data: str, file: str) -> bool:
         return True
 
     except FileNotFoundError:
-        print("the file requested \"{file}\" does nt exist")
+        print(f"the file requested \"{file}\" does not exist")
 
         return False
 
