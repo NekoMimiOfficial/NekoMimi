@@ -1,8 +1,9 @@
 from io import TextIOWrapper
-from types import ModuleType
 import requests
+import platform
 import json
 import sys
+import os
 from pyfiglet import Figlet
 from importlib import import_module
 
@@ -154,3 +155,44 @@ def load_mod(module: str):
         return sys.modules[module];
     else:
         return False
+
+def get_platform()-> str:
+    """
+    quick macro to get the platform name
+    @return: Platform name
+    >>> NekoMimi.utils.get_platform()
+    Linux
+    Windows
+    Darwin
+    """
+    return platform.system()
+
+def get_conf_dir_unix()-> str:
+    """
+    quick macro to get the user's absolute path to the config dir
+    @return: $HOME/.config
+    >>> NekoMimi.utils.get_conf_dir_unix()
+    /home/nekomimi/.config/
+    """
+    home= os.environ['HOME']
+    return home+"/.config/"
+
+def get_data_dir_unix()-> str:
+    """
+    quick macro to get the user's absolute path to the local dir
+    @return: $HOME/.local
+    >>> NekoMimi.utils.get_conf_dir_unix()
+    /home/nekomimi/.local/
+    """
+    home= os.environ['HOME']
+    return home+"/.local/"
+ 
+def get_data_dir_nt()-> str:
+    """
+    quick macro to get the user's absolute path to the Documents dir
+    @return: C:\\Users\\username\\Documents\\
+    >>> NekoMimi.utils.get_conf_dir_nt()
+    C:\\Users\\NekoMimi\\Documents
+    """
+    home= os.path.expanduser("~")
+    return home+"\\Documents\\"
