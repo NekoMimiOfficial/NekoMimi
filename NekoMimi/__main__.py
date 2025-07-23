@@ -2,7 +2,7 @@ from subprocess import getoutput
 from os.path import exists, isdir
 import pickle
 
-from pyfiglet import os
+import os
 
 from NekoMimi import consoleToys
 
@@ -24,6 +24,9 @@ class system:
         name = ctx.name
         self.modules[name] = func
         return
+
+def notInitialized()-> bool:
+    return init[0] == 0
 
 #############
 #  Modules  #
@@ -73,6 +76,13 @@ $data:      data to be stored into cells, still needed if the operation is read 
     return ctx
 
 @Factory.module
+def __CMD_cd(ctx: system.context):
+    ctx.name= "cd"
+    if len(ctx.args) > 0 and not " " in ctx.args:
+        os.chdir(ctx.args)
+    return ctx
+
+@Factory.module
 def __CMD_ls(ctx: system.context):
     ctx.name= "ls"
     args= ctx.args
@@ -84,7 +94,7 @@ def __CMD_ls(ctx: system.context):
     if args == "":
         args= "./"
 
-    if init[0] == 0:
+    if notInitialized():
         return ctx
 
     contents= os.listdir(args)
@@ -94,11 +104,11 @@ def __CMD_ls(ctx: system.context):
         elif content.endswith(".py"):
             cls= "#F9E2AF"
         elif content.endswith(".build"):
-            cls= "#799DDB"
+            cls= "#f2d5cf"
         elif content.endswith(".conf"):
-            cls= "#799DDB"
+            cls= "#f2d5cf"
         elif content.endswith(".txt"):
-            cls= "#799DDB"
+            cls= "#ea999c"
         elif content.endswith(".md"):
             cls= "#F5C2E7"
         else:
@@ -113,6 +123,30 @@ def __CMD_cp(ctx: system.context):
     ctx.name= "cp"
     if len(ctx.args) > 1:
         getoutput(f"cp {ctx.args}")
+    return ctx
+
+@Factory.module
+def __CMD_bob(ctx: system.context):
+    ctx.name= "bob"
+    if notInitialized():
+        return ctx
+
+    if os.path.exists("bob.build"):
+        conf_buff= open("bob.build", "r")
+        config= conf_buff.read()
+        conf_buff.close()
+        cmds= config.split("\n")
+        usable= False
+        for line in cmds:
+            if line.startswith("ver="):
+                usable= True
+            else:
+                ctx.result= "unsupported build config file."
+                return ctx
+        if usable:
+            # start implementing the actual parsing and wheel creation
+            return ctx
+        ctx.result= "no build config found."
     return ctx
 
 @Factory.module

@@ -1,9 +1,4 @@
-$src <./NekoMimi/>
-#$test <./tests/>
-
-@buildType <PyModule>
-@buildSrc <$src>
-#@testSrc <$test>
-
-@BUILD
-#@TEST
+ver= 2.0
+buildType= py
+pyModule= NekoMimi
+pyTest= tests
